@@ -12,6 +12,7 @@
 		6903D4311FFD2CF80087AE60 /* PagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6903D4301FFD2CF80087AE60 /* PagerViewController.swift */; };
 		6903D4331FFD2ECE0087AE60 /* Popular.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6903D4321FFD2ECE0087AE60 /* Popular.storyboard */; };
 		6930BCD222F152EF0026DA9A /* PopularViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6930BCD122F152EF0026DA9A /* PopularViewModel.swift */; };
+		6930BCD522F162420026DA9A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6930BCD422F162420026DA9A /* UIView.swift */; };
 		693653A51FFD95740008D473 /* Upcoming.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 693653A41FFD95740008D473 /* Upcoming.storyboard */; };
 		693A66431FF47A9F0047B4B5 /* PopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693A66421FF47A9F0047B4B5 /* PopularViewController.swift */; };
 		693A66461FF47AB80047B4B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 693A66451FF47AB80047B4B5 /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		6903D4301FFD2CF80087AE60 /* PagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerViewController.swift; sourceTree = "<group>"; };
 		6903D4321FFD2ECE0087AE60 /* Popular.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Popular.storyboard; sourceTree = "<group>"; };
 		6930BCD122F152EF0026DA9A /* PopularViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewModel.swift; sourceTree = "<group>"; };
+		6930BCD422F162420026DA9A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		693653A41FFD95740008D473 /* Upcoming.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Upcoming.storyboard; sourceTree = "<group>"; };
 		693A66421FF47A9F0047B4B5 /* PopularViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularViewController.swift; sourceTree = "<group>"; };
 		693A66451FF47AB80047B4B5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -100,9 +102,18 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		6930BCD322F162220026DA9A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6930BCD422F162420026DA9A /* UIView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		693A66401FF47A290047B4B5 /* Movies */ = {
 			isa = PBXGroup;
 			children = (
+				6930BCD322F162220026DA9A /* Extensions */,
 				6930BCD022F152DA0026DA9A /* ViewModels */,
 				693A66471FF47B150047B4B5 /* Cells */,
 				693A66441FF47AB80047B4B5 /* Views */,
@@ -344,6 +355,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6930BCD522F162420026DA9A /* UIView.swift in Sources */,
 				6930BCD222F152EF0026DA9A /* PopularViewModel.swift in Sources */,
 				693A66431FF47A9F0047B4B5 /* PopularViewController.swift in Sources */,
 				698D88081FF332C900C8FC9E /* AppDelegate.swift in Sources */,

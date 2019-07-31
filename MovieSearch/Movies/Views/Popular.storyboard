@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zPN-rH-akC">
-                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VBt-qg-nnz">
                                     <size key="itemSize" width="110" height="172"/>
@@ -37,17 +37,37 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bbE-CU-qdf">
                                                     <rect key="frame" x="0.0" y="0.0" width="110" height="176"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOT-UM-YNV">
+                                                    <rect key="frame" x="0.0" y="106" width="110" height="70"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="70" id="p4G-K7-hdr"/>
+                                                    </constraints>
+                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                         </view>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="bbE-CU-qdf" secondAttribute="trailing" id="Cg2-zK-xzZ"/>
+                                            <constraint firstItem="hOT-UM-YNV" firstAttribute="leading" secondItem="wds-Aq-DHX" secondAttribute="leading" id="GNu-Bh-wGG"/>
+                                            <constraint firstAttribute="trailing" secondItem="hOT-UM-YNV" secondAttribute="trailing" id="J0O-ia-yGB"/>
                                             <constraint firstItem="bbE-CU-qdf" firstAttribute="leading" secondItem="wds-Aq-DHX" secondAttribute="leading" id="NNt-55-sRo"/>
                                             <constraint firstAttribute="bottom" secondItem="bbE-CU-qdf" secondAttribute="bottom" id="eEV-ND-RXh"/>
+                                            <constraint firstAttribute="bottom" secondItem="hOT-UM-YNV" secondAttribute="bottom" id="f2O-x0-TGP"/>
                                             <constraint firstItem="bbE-CU-qdf" firstAttribute="top" secondItem="wds-Aq-DHX" secondAttribute="top" id="p0f-jW-rVe"/>
                                         </constraints>
                                         <size key="customSize" width="110" height="176"/>
                                         <connections>
+                                            <outlet property="movieDescription" destination="hOT-UM-YNV" id="3wE-Pe-Z5W"/>
                                             <outlet property="posterImageView" destination="bbE-CU-qdf" id="yS7-eZ-hNo"/>
                                         </connections>
                                     </collectionViewCell>
@@ -63,7 +83,7 @@
                             <constraint firstItem="zPN-rH-akC" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="9EM-7a-szU"/>
                             <constraint firstItem="zPN-rH-akC" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="34" id="PUz-IR-IIc"/>
                             <constraint firstItem="zPN-rH-akC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XtL-jW-fdq"/>
-                            <constraint firstItem="zPN-rH-akC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="jfR-KR-Lr6"/>
+                            <constraint firstItem="zPN-rH-akC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="yIa-bq-kgK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

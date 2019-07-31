@@ -10,5 +10,6 @@ import UIKit
 
 class MovieCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var posterImageView: UIImageView!
+    @IBOutlet weak var movieDescription: UITextView!
     
 }

@@ -42,9 +42,10 @@ extension PopularViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "moviesCell", for: indexPath) as? MovieCollectionViewCell else {
             return UICollectionViewCell()
         }
-        
         let url = URL(string: (viewModel.movies[indexPath.row].imageUrl))
         cell.posterImageView.kf.setImage(with: url)
+        cell.movieDescription.text = viewModel.movies[indexPath.row].overview
+        cell.shadow(color: .white)
         return cell
     }
     
@@ -61,6 +62,6 @@ extension PopularViewController: UICollectionViewDelegate {
 
 extension PopularViewController: IndicatorInfoProvider {
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "Vote Averange")
+        return IndicatorInfo(title: "Popular Movies")
     }
 }

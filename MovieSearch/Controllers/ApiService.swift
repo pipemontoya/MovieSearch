@@ -12,6 +12,8 @@ import Kingfisher
 
 class ApiService {
     
+    private let baseUrl = "https://api.themoviedb.org/3/movie/"
+    private let apiKey = "e5585fb8adb87a42bd8e55d4c76c8e46"
     static let shared = ApiService()
     
     enum ApiErrors: Error {
@@ -20,7 +22,28 @@ class ApiService {
     
     func get(popularMovies handler: @escaping (Swift.Result<[Movie], Error>) -> Void) {
         var users = [Movie]()
-        let url = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=e5585fb8adb87a42bd8e55d4c76c8e46&&language=en-US&page=1")
+        let url = URL(string: "\(baseUrl)popular?api_key=\(apiKey)")
+        let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
+            guard error == nil else {
+                handler(.failure(ApiErrors.serverError))
+                return
+            }
+            guard let content = data else {
+                handler(.failure(ApiErrors.emptyData))
+                return
+            }
+            let json = JSON(content)
+            for movie in json["results"].arrayValue {
+                users.append(Movie(JSON: movie))
+            }
+            handler(.success(users))
+        }
+        task.resume()
+    }
+    
+    func get(topRatedMovies handler: @escaping (Swift.Result<[Movie], Error>) -> Void) {
+        var users = [Movie]()
+        let url = URL(string: "\(baseUrl)popular?api_key=\(apiKey)")
         let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
             guard error == nil else {
                 handler(.failure(ApiErrors.serverError))

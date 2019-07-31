@@ -13,7 +13,7 @@ class PopularViewModel{
     private(set) var movies = [Movie]()
 
     func getMovies(_ handler: @escaping (Result<Bool, Error>) -> Void) {
-        ApiService.shared.get{ (result) in
+        ApiService.shared.get(popularMovies: { result in
             switch result {
             case .success(let movies):
                 self.movies = movies
@@ -21,6 +21,6 @@ class PopularViewModel{
             case .failure(let error):
                 handler(.failure(error))
             }
-        }
+        })
     }
 }
