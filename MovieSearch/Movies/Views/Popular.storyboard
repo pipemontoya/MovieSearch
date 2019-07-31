@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Popular View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="PopularViewController" customModule="MovieSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zPN-rH-akC">
+                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VBt-qg-nnz">
+                                    <size key="itemSize" width="110" height="172"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="8" minY="8" maxX="8" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="moviesCell" id="wds-Aq-DHX" customClass="MovieCollectionViewCell" customModule="MovieSearch" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="8" width="110" height="176"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="110" height="176"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bbE-CU-qdf">
+                                                    <rect key="frame" x="0.0" y="0.0" width="110" height="176"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="bbE-CU-qdf" secondAttribute="trailing" id="Cg2-zK-xzZ"/>
+                                            <constraint firstItem="bbE-CU-qdf" firstAttribute="leading" secondItem="wds-Aq-DHX" secondAttribute="leading" id="NNt-55-sRo"/>
+                                            <constraint firstAttribute="bottom" secondItem="bbE-CU-qdf" secondAttribute="bottom" id="eEV-ND-RXh"/>
+                                            <constraint firstItem="bbE-CU-qdf" firstAttribute="top" secondItem="wds-Aq-DHX" secondAttribute="top" id="p0f-jW-rVe"/>
+                                        </constraints>
+                                        <size key="customSize" width="110" height="176"/>
+                                        <connections>
+                                            <outlet property="posterImageView" destination="bbE-CU-qdf" id="yS7-eZ-hNo"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Jyq-1V-K3x"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="boj-hf-cIM"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="zPN-rH-akC" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="9EM-7a-szU"/>
+                            <constraint firstItem="zPN-rH-akC" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="34" id="PUz-IR-IIc"/>
+                            <constraint firstItem="zPN-rH-akC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XtL-jW-fdq"/>
+                            <constraint firstItem="zPN-rH-akC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="jfR-KR-Lr6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="PPf-mb-jFR"/>
+                    <connections>
+                        <outlet property="moviesCollectionView" destination="zPN-rH-akC" id="hcZ-nh-xV3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="368.80000000000001" y="608.12807881773404"/>
+        </scene>
+    </scenes>
+</document>
