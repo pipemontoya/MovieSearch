@@ -12,7 +12,7 @@ import XLPagerTabStrip
 
 class PopularViewController: UIViewController {
     
-    @IBOutlet weak var moviesCollectionView: UICollectionView!
+    @IBOutlet weak var tableView: UITableView!
     let viewModel = PopularViewModel()
     
     override func viewDidLoad() {
@@ -21,7 +21,7 @@ class PopularViewController: UIViewController {
             switch result {
             case .success(_):
                 DispatchQueue.main.async {
-                    self?.moviesCollectionView.reloadData()
+                    self?.tableView.reloadData()
                 }
             case .failure(let error):
                 print(error)
@@ -33,29 +33,30 @@ class PopularViewController: UIViewController {
 
 //MARK - DataSource
 
-extension PopularViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+extension PopularViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.movies.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "moviesCell", for: indexPath) as? MovieCollectionViewCell else {
-            return UICollectionViewCell()
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as? MoviewTableViewCell else {
+            return UITableViewCell()
         }
         let url = URL(string: (viewModel.movies[indexPath.row].imageUrl))
         cell.posterImageView.kf.setImage(with: url)
         cell.movieDescription.text = viewModel.movies[indexPath.row].overview
+        cell.rateLabel.text = "\(viewModel.movies[indexPath.row].voteAverage)"
         cell.shadow(color: .white)
         return cell
     }
-    
-    
 }
 
 //MARK - Delegate
 
-extension PopularViewController: UICollectionViewDelegate {
-    
+extension PopularViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 175.0
+    }
 }
 
 //MARK - XLPagerStrip

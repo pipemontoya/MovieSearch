@@ -8,8 +8,9 @@
 
 import UIKit
 
-class MovieCollectionViewCell: UICollectionViewCell {
+class MoviewTableViewCell: UITableViewCell {
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var movieDescription: UITextView!
+    @IBOutlet weak var rateLabel: UILabel!
     
 }
