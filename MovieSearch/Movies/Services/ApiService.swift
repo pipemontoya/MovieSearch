@@ -43,8 +43,38 @@ class ApiService {
     
     func get(topRatedMovies handler: @escaping (Swift.Result<[Movie], Error>) -> Void) {
         var users = [Movie]()
-        let url = URL(string: "\(baseUrl)popular?api_key=\(apiKey)")
-        let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
+        let url = URL(string: "\(baseUrl)top_rated?api_key=\(apiKey)")
+        let config = URLSessionConfiguration.default
+        config.timeoutIntervalForRequest = 30
+        config.requestCachePolicy = NSURLRequest.CachePolicy.returnCacheDataElseLoad
+        let session = URLSession(configuration: config)
+        
+        let task = session.dataTask(with: url!) {(data, response, error) in
+            guard error == nil else {
+                handler(.failure(ApiErrors.serverError))
+                return
+            }
+            guard let content = data else {
+                handler(.failure(ApiErrors.emptyData))
+                return
+            }
+            let json = JSON(content)
+            for movie in json["results"].arrayValue {
+                users.append(Movie(JSON: movie))
+            }
+            handler(.success(users))
+        }
+        task.resume()
+    }
+    func get(UpcomingMovies handler: @escaping (Swift.Result<[Movie], Error>) -> Void) {
+        var users = [Movie]()
+        let url = URL(string: "\(baseUrl)upcoming?api_key=\(apiKey)")
+        let config = URLSessionConfiguration.default
+        config.timeoutIntervalForRequest = 30
+        config.requestCachePolicy = NSURLRequest.CachePolicy.returnCacheDataElseLoad
+        let session = URLSession(configuration: config)
+        
+        let task = session.dataTask(with: url!) {(data, response, error) in
             guard error == nil else {
                 handler(.failure(ApiErrors.serverError))
                 return
