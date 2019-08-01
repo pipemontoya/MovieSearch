@@ -28,7 +28,7 @@ class MoviesViewController: UIViewController {
             }
         }
     }
-    prepare
+    
 }
 
 //MARK - DataSource
