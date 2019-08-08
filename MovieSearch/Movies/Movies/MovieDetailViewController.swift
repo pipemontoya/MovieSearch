@@ -16,9 +16,11 @@ class MovieDetailViewController: UIViewController {
     // constraints
     @IBOutlet weak var heightContentView: NSLayoutConstraint!
     
-    //var
+    //vars - lets
     var movie: Movie?
     var startingConstant: CGFloat  = 0.0
+    let heightMax: CGFloat = 600
+    let heightMin: CGFloat = 300
     
     //Outlets
     @IBOutlet weak var moviePoster: UIImageView!
@@ -26,10 +28,10 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var contentView: UIView!
     
     override func viewDidLoad() {
-        contentView.shadow(color: .darkGray)
         backView.blur()
         let url = URL(string: (movie?.imageUrl ?? ""))
         moviePoster.kf.setImage(with: url)
+        moviePoster.layer.cornerRadius = 10
     }
 }
 
@@ -42,9 +44,9 @@ extension MovieDetailViewController {
         case .began:
             self.startingConstant = self.heightContentView.constant
         case .changed:
-            if heightContentView.constant > 529 {
-                heightContentView.constant = 529
-            } else if heightContentView.constant <= 529 {
+            if heightContentView.constant > heightMax {
+                heightContentView.constant = heightMax
+            } else if heightContentView.constant <= heightMax {
                 heightContentView.constant = startingConstant - translation.y
             }
             if heightContentView.constant <= 200 {
@@ -52,9 +54,9 @@ extension MovieDetailViewController {
             }
         case .ended:
             if translation.y < 0 {
-                animate(with: 529)
+                animate(with: heightMax)
             } else {
-                animate(with: 300)
+                animate(with: heightMin)
             }
         default:
             break

@@ -11,12 +11,18 @@ import Kingfisher
 import XLPagerTabStrip
 
 class MoviesViewController: UIViewController {
+    
+    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var categoryTitle: UILabel!
     @IBOutlet weak var tableView: UITableView!
     var viewModel: MoviesViewModel?
     let transition = Animator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        pageControl.currentPage = viewModel?.index ?? 0
+        categoryTitle.text = viewModel?.getTitle()
+        navigationController?.navigationBar.isHidden = true
         viewModel?.getMovies {[weak self] (result) in
             switch result {
             case .success(_):
@@ -51,11 +57,8 @@ extension MoviesViewController: UITableViewDataSource {
         }
         let movie = viewModel?.movies[indexPath.row]
         let url = URL(string: (movie?.imageUrl ?? ""))
-        //cell.hasVideoImage.image = movie?.video ?? false ? UIImage(named: "play") : UIImage(named: "play")
-        cell.title.text = movie?.title
         cell.posterImageView.kf.setImage(with: url)
         cell.viewC.shadow(color: .white)
-        //cell.movieDescription.text = movie?.overview
         cell.rateLabel.text = "\(movie?.voteAverage ?? 0.0)"
         return cell
     }
@@ -65,7 +68,7 @@ extension MoviesViewController: UITableViewDataSource {
 
 extension MoviesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200.0
+        return 400.0
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let rotation = CATransform3DTranslate(CATransform3DIdentity, -200, 10, 0)

@@ -32,7 +32,7 @@ class Animator: NSObject, UIViewControllerAnimatedTransitioning {
                 y: initialFrame.midY)
             movieDetail.clipsToBounds = true
         }
-        duration = presenting == true ? 0.8 : 0.5
+        duration = presenting == true ? 0.8 : 1.0
         movieDetail.layer.cornerRadius = presenting ? 20.0 : 0.0
         movieDetail.layer.masksToBounds = true
         containerView.addSubview(toView)
