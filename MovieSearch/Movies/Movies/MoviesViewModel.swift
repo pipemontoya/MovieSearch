@@ -9,7 +9,7 @@
 import Foundation
 
 class MoviesViewModel {
-    let index: Int
+    private let index: Int
     private(set) var movies = [Movie]()
     
     init(index: Int) {
@@ -64,3 +64,4 @@ class MoviesViewModel {
         
     }
 }
+

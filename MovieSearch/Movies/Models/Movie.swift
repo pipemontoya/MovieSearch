@@ -31,7 +31,7 @@ class Movie: NSObject {
     var adult: Bool
     var overview: String
     var releaseDate: String
-    
+
     init(JSON: JSON) {
         self.voteAverage = JSON["vote_average"].doubleValue
         self.voteCount = JSON["vote_count"].intValue

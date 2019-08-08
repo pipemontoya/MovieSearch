@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MoviewTableViewCell: UITableViewCell {
+class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var movieDescription: UITextView!
     @IBOutlet weak var rateLabel: UILabel!

@@ -11,9 +11,9 @@ import Kingfisher
 import XLPagerTabStrip
 
 class MoviesViewController: UIViewController {
-    
     @IBOutlet weak var tableView: UITableView!
     var viewModel: MoviesViewModel?
+    let transition = Animator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +28,13 @@ class MoviesViewController: UIViewController {
             }
         }
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let detailViewController = segue.destination as? MovieDetailViewController,
+            let movie = sender as? Movie {
+            detailViewController.movie = movie
+            detailViewController.transitioningDelegate = self
+        }
+    }
     
 }
 
@@ -39,16 +46,17 @@ extension MoviesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as? MoviewTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as? MovieTableViewCell else {
             return UITableViewCell()
         }
-        let url = URL(string: (viewModel?.movies[indexPath.row].imageUrl ?? ""))
-        cell.hasVideoImage.image = viewModel?.movies[indexPath.row].video ?? false ? UIImage(named: "play") : UIImage(named: "play")
-        cell.title.text = viewModel?.movies[indexPath.row].title
+        let movie = viewModel?.movies[indexPath.row]
+        let url = URL(string: (movie?.imageUrl ?? ""))
+        //cell.hasVideoImage.image = movie?.video ?? false ? UIImage(named: "play") : UIImage(named: "play")
+        cell.title.text = movie?.title
         cell.posterImageView.kf.setImage(with: url)
         cell.viewC.shadow(color: .white)
-        cell.movieDescription.text = viewModel?.movies[indexPath.row].overview
-        cell.rateLabel.text = "\(viewModel?.movies[indexPath.row].voteAverage ?? 0.0)"
+        //cell.movieDescription.text = movie?.overview
+        cell.rateLabel.text = "\(movie?.voteAverage ?? 0.0)"
         return cell
     }
 }
@@ -69,15 +77,45 @@ extension MoviesViewController: UITableViewDelegate {
         }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        performSegue(withIdentifier: "detail", sender: viewModel?.movies[indexPath.row])
     }
 }
 
-//MARK - XLPagerStrip
+//MARK: - XLPagerStrip
 
 extension MoviesViewController: IndicatorInfoProvider {
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         let indicatorInfo = IndicatorInfo(title: viewModel?.getTitle() ?? "", image: UIImage(named: "star"))
         return indicatorInfo
+    }
+}
+
+
+//MARK: Animation
+
+extension MoviesViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        guard let selectedIndexPathCell = tableView.indexPathForSelectedRow,
+            let selectedCell = tableView.cellForRow(at: selectedIndexPathCell) as? MovieTableViewCell,
+            let selectedCellSuperview = selectedCell.superview
+            else {
+                return nil
+        }
+        
+        transition.originFrame = selectedCellSuperview.convert(selectedCell.frame, to: nil)
+        transition.originFrame = CGRect(
+            x: transition.originFrame.origin.x + 20,
+            y: transition.originFrame.origin.y + 20,
+            width: transition.originFrame.size.width - 40,
+            height: transition.originFrame.size.height - 40
+        )
+        
+        transition.presenting = true
+        //selectedCell.shadowView.isHidden = true
+        return transition
+    }
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.presenting = false
+        return transition
     }
 }

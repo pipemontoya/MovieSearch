@@ -15,4 +15,10 @@ extension UIView {
         self.layer.shadowOffset = CGSize(width: -10, height: 10)
         self.layer.shadowColor = color.cgColor
     }
+    
+    func blur() {
+        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
+        visualEffectView.frame = self.bounds
+        self.addSubview(visualEffectView)
+    }
 }
