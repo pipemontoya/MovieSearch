@@ -147,7 +147,7 @@
                                     <constraint firstAttribute="width" secondItem="u3X-48-t9g" secondAttribute="height" multiplier="1.2:1" id="oZB-pd-lK1"/>
                                     <constraint firstAttribute="height" constant="30" id="yEq-UJ-v2g"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="play"/>
+                                <state key="normal" title="Button" image="cantPlay"/>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aS4-Hm-OUr">
                                 <rect key="frame" x="64" y="84" width="247" height="392"/>
@@ -229,7 +229,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="play" width="511" height="384"/>
+        <image name="cantPlay" width="511" height="384"/>
         <image name="star" width="42.666667938232422" height="42.666667938232422"/>
     </resources>
 </document>

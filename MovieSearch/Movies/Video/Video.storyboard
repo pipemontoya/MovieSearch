@@ -27,7 +27,7 @@
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dvi-Ka-S8y">
-                                <rect key="frame" x="16" y="92" width="54" height="36"/>
+                                <rect key="frame" x="16" y="108" width="54" height="36"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Close">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -39,7 +39,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="dvi-Ka-S8y" firstAttribute="top" secondItem="qBM-xz-3cb" secondAttribute="top" constant="48" id="2Yr-cS-wo1"/>
+                            <constraint firstItem="dvi-Ka-S8y" firstAttribute="top" secondItem="qBM-xz-3cb" secondAttribute="top" constant="64" id="2Yr-cS-wo1"/>
                             <constraint firstItem="dvi-Ka-S8y" firstAttribute="leading" secondItem="qBM-xz-3cb" secondAttribute="leading" constant="16" id="KRp-sb-gI6"/>
                             <constraint firstItem="hGl-gP-frj" firstAttribute="leading" secondItem="qBM-xz-3cb" secondAttribute="leading" id="Q73-rs-fpO"/>
                             <constraint firstAttribute="bottom" secondItem="hGl-gP-frj" secondAttribute="bottom" id="kVe-S5-c3c"/>
