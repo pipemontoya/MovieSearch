@@ -25,6 +25,7 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         backView.blur()
@@ -95,3 +96,28 @@ extension MovieDetailViewController {
     }
 }
 
+//MARK: TableView Datasource
+
+extension MovieDetailViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "title") as? MoviewDetailTableViewCell else {return UITableViewCell()}
+        cell.titleMovie.text = movie?.title
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let releaseDate = formatter.date(from: movie?.releaseDate ?? "")
+        formatter.dateFormat = "MMMM d, yyyy"
+        cell.releaseDateMoview.text = formatter.string(from: releaseDate ?? Date())
+        cell.synopsisLabel.text = movie?.overview
+        return cell
+    }
+}
+
+extension MovieDetailViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 500.0
+    }
+}

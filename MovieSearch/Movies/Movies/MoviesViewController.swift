@@ -49,15 +49,21 @@ class MoviesViewController: UIViewController {
             detailViewController.transitioningDelegate = self
         }
     }
+    
     @objc private func opensearchBar() {
         let heightValue = searchBarHeightConstraint.constant
         UIView.animate(withDuration: 0.5) {
             if heightValue == 45 {
+                self.searchButton.setImage(UIImage(named: "search"), for: .normal)
                 self.pageControl.isHidden = false
                 self.searchBarHeightConstraint.constant = 0
                 self.headerConstraint.constant = 120
                 self.searchBar.resignFirstResponder()
+                self.searchBar.text = ""
+                self.viewModel?.filteredSearch = self.viewModel?.movies ?? [Movie]()
+                self.tableView.reloadData()
             } else {
+                self.searchButton.setImage(UIImage(named: "close"), for: .normal)
                 self.searchBar.becomeFirstResponder()
                 self.pageControl.isHidden = true
                 self.headerConstraint.constant = 40
@@ -66,9 +72,6 @@ class MoviesViewController: UIViewController {
             self.view.layoutIfNeeded()
         }
     }
-    
-    
-    
 }
 
 //MARK - tableViewDataSource
@@ -142,7 +145,7 @@ extension MoviesViewController: UIViewControllerTransitioningDelegate {
         return transition
     }
 }
-
+///MARK: SearchBar Delegate
 extension MoviesViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -161,6 +164,7 @@ extension MoviesViewController: UISearchBarDelegate {
         })) ?? [Movie]()
         tableView.reloadData()
     }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         tableView.reloadData()
         self.searchBar.resignFirstResponder()
