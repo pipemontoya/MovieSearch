@@ -11,6 +11,8 @@
 		6903D42F1FFD2C3C0087AE60 /* XLPagerTabStrip.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6903D42C1FFD2C320087AE60 /* XLPagerTabStrip.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6903D4311FFD2CF80087AE60 /* PagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6903D4301FFD2CF80087AE60 /* PagerViewController.swift */; };
 		6903D4331FFD2ECE0087AE60 /* Movies.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6903D4321FFD2ECE0087AE60 /* Movies.storyboard */; };
+		69064C0F23007A040097CE4C /* Video.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69064C0E23007A040097CE4C /* Video.storyboard */; };
+		69064C1123007A190097CE4C /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69064C1023007A190097CE4C /* VideoViewController.swift */; };
 		692FEB2422F2BED0005C9D5A /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692FEB2322F2BED0005C9D5A /* Animator.swift */; };
 		692FEB2622F2C12A005C9D5A /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692FEB2522F2C12A005C9D5A /* MovieDetailViewController.swift */; };
 		6930BCD222F152EF0026DA9A /* MoviesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6930BCD122F152EF0026DA9A /* MoviesViewModel.swift */; };
@@ -27,6 +29,8 @@
 		698D88241FF3573200C8FC9E /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 698D881F1FF3572600C8FC9E /* SwiftyJSON.framework */; };
 		698D88251FF3573200C8FC9E /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 698D881F1FF3572600C8FC9E /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		698D88291FF3597900C8FC9E /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698D88281FF3597900C8FC9E /* ApiService.swift */; };
+		69EB664122FBF7900004C5D2 /* MoviesDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EB664022FBF7900004C5D2 /* MoviesDetailViewModel.swift */; };
+		69EB664322FBFD3D0004C5D2 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EB664222FBFD3D0004C5D2 /* Video.swift */; };
 		967943C53FFBAC17BE4A839A /* Pods_MovieSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4308D4ABD75AA49BB946CB /* Pods_MovieSearch.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +55,8 @@
 		6903D42C1FFD2C320087AE60 /* XLPagerTabStrip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XLPagerTabStrip.framework; path = Carthage/Build/iOS/XLPagerTabStrip.framework; sourceTree = "<group>"; };
 		6903D4301FFD2CF80087AE60 /* PagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerViewController.swift; sourceTree = "<group>"; };
 		6903D4321FFD2ECE0087AE60 /* Movies.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Movies.storyboard; sourceTree = "<group>"; };
+		69064C0E23007A040097CE4C /* Video.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Video.storyboard; sourceTree = "<group>"; };
+		69064C1023007A190097CE4C /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		692FEB2322F2BED0005C9D5A /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		692FEB2522F2C12A005C9D5A /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		6930BCD122F152EF0026DA9A /* MoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewModel.swift; sourceTree = "<group>"; };
@@ -68,6 +74,8 @@
 		698D881E1FF3572600C8FC9E /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		698D881F1FF3572600C8FC9E /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		698D88281FF3597900C8FC9E /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		69EB664022FBF7900004C5D2 /* MoviesDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesDetailViewModel.swift; sourceTree = "<group>"; };
+		69EB664222FBFD3D0004C5D2 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		931558EDF453F16D8FE3891F /* Pods-MovieSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieSearch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovieSearch/Pods-MovieSearch.debug.xcconfig"; sourceTree = "<group>"; };
 		BD4308D4ABD75AA49BB946CB /* Pods_MovieSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -96,6 +104,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		69064C0D230079CF0097CE4C /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				69064C0E23007A040097CE4C /* Video.storyboard */,
+				69064C1023007A190097CE4C /* VideoViewController.swift */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
 		692FEB1D22F2A3D1005C9D5A /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +139,7 @@
 				6930BCD122F152EF0026DA9A /* MoviesViewModel.swift */,
 				693A66421FF47A9F0047B4B5 /* MoviesViewController.swift */,
 				692FEB2522F2C12A005C9D5A /* MovieDetailViewController.swift */,
+				69EB664022FBF7900004C5D2 /* MoviesDetailViewModel.swift */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -153,6 +171,7 @@
 				693A66471FF47B150047B4B5 /* MovieCell */,
 				692FEB2022F2A438005C9D5A /* Main */,
 				692FEB2122F2A452005C9D5A /* Movies */,
+				69064C0D230079CF0097CE4C /* Video */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -195,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				698D881A1FF350C800C8FC9E /* Movie.swift */,
+				69EB664222FBFD3D0004C5D2 /* Video.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -233,7 +253,6 @@
 				698D88011FF332C900C8FC9E /* Frameworks */,
 				698D88021FF332C900C8FC9E /* Resources */,
 				33C3002F628A1E2469859D42 /* [CP] Embed Pods Frameworks */,
-				EAE57F11AFFFB749F1E90766 /* [CP] Copy Pods Resources */,
 				698D881C1FF356D400C8FC9E /* Carthage */,
 				698D88261FF3573200C8FC9E /* Embed Frameworks */,
 			);
@@ -287,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				693A66461FF47AB80047B4B5 /* Main.storyboard in Resources */,
+				69064C0F23007A040097CE4C /* Video.storyboard in Resources */,
 				6903D4331FFD2ECE0087AE60 /* Movies.storyboard in Resources */,
 				698D88121FF332C900C8FC9E /* LaunchScreen.storyboard in Resources */,
 				698D880F1FF332C900C8FC9E /* Assets.xcassets in Resources */,
@@ -302,13 +322,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MovieSearch/Pods-MovieSearch-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/YoutubePlayer-in-WKWebView/YoutubePlayer_in_WKWebView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YoutubePlayer_in_WKWebView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MovieSearch/Pods-MovieSearch-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MovieSearch/Pods-MovieSearch-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		698D881C1FF356D400C8FC9E /* Carthage */ = {
@@ -324,21 +347,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-		EAE57F11AFFFB749F1E90766 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MovieSearch/Pods-MovieSearch-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		F269C26937C5ECECC1048545 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -366,11 +374,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6930BCD522F162420026DA9A /* UIView.swift in Sources */,
+				69EB664322FBFD3D0004C5D2 /* Video.swift in Sources */,
 				692FEB2422F2BED0005C9D5A /* Animator.swift in Sources */,
 				6930BCD222F152EF0026DA9A /* MoviesViewModel.swift in Sources */,
 				693A66431FF47A9F0047B4B5 /* MoviesViewController.swift in Sources */,
+				69064C1123007A190097CE4C /* VideoViewController.swift in Sources */,
 				698D88081FF332C900C8FC9E /* AppDelegate.swift in Sources */,
 				693A66491FF47B360047B4B5 /* MovieTableViewCell.swift in Sources */,
+				69EB664122FBF7900004C5D2 /* MoviesDetailViewModel.swift in Sources */,
 				692FEB2622F2C12A005C9D5A /* MovieDetailViewController.swift in Sources */,
 				698D881B1FF350C800C8FC9E /* Movie.swift in Sources */,
 				6903D4311FFD2CF80087AE60 /* PagerViewController.swift in Sources */,
@@ -509,7 +520,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9HVW9V6998;
+				DEVELOPMENT_TEAM = J5C646D2T4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -529,7 +540,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9HVW9V6998;
+				DEVELOPMENT_TEAM = J5C646D2T4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",

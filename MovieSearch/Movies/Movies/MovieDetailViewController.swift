@@ -8,8 +8,8 @@
 
 import Foundation
 import UIKit
-import MediaPlayer
-import AVKit
+import YoutubePlayer_in_WKWebView
+
 
 class MovieDetailViewController: UIViewController {
     
@@ -18,20 +18,44 @@ class MovieDetailViewController: UIViewController {
     
     //vars - lets
     var movie: Movie?
-    var startingConstant: CGFloat  = 0.0
-    let heightMax: CGFloat = 600
-    let heightMin: CGFloat = 300
-    
+    var viewModel = MoviesDetailViewModel()
+
     //Outlets
     @IBOutlet weak var moviePoster: UIImageView!
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var playButton: UIButton!
     
     override func viewDidLoad() {
         backView.blur()
+        playButton.addTarget(self, action: #selector(playVideo), for: .touchUpInside)
+        viewModel.getVideo(with: movie?.id ?? 0) { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(_):
+                    self.playButton.isEnabled = true
+                    self.playButton.setImage(UIImage(named: "play"), for: .normal)
+                    break
+                case .failure(let error):
+                    self.playButton.isEnabled = false
+                    self.playButton.setImage(UIImage(named: "cantPlay"), for: .normal)
+                    print(error)
+                }
+            }
+        }
         let url = URL(string: (movie?.imageUrl ?? ""))
         moviePoster.kf.setImage(with: url)
         moviePoster.layer.cornerRadius = 10
+    }
+}
+//Actions
+
+extension MovieDetailViewController {
+    @objc func playVideo() {
+        guard let viewController = UIStoryboard(name: "Video", bundle: nil)
+            .instantiateInitialViewController() as? VideoViewController else {return}
+        viewController.key = viewModel.video.key
+        present(viewController, animated: true, completion: nil)
     }
 }
 
@@ -42,21 +66,21 @@ extension MovieDetailViewController {
         let translation = sender.translation(in: contentView)
         switch sender.state {
         case .began:
-            self.startingConstant = self.heightContentView.constant
+            viewModel.startingConstant = self.heightContentView.constant
         case .changed:
-            if heightContentView.constant > heightMax {
-                heightContentView.constant = heightMax
-            } else if heightContentView.constant <= heightMax {
-                heightContentView.constant = startingConstant - translation.y
+            if heightContentView.constant > viewModel.heightMax {
+                heightContentView.constant = viewModel.heightMax
+            } else if heightContentView.constant <= viewModel.heightMax {
+                heightContentView.constant = viewModel.startingConstant - translation.y
             }
             if heightContentView.constant <= 200 {
                 dismiss(animated: true)
             }
         case .ended:
             if translation.y < 0 {
-                animate(with: heightMax)
+                animate(with: viewModel.heightMax)
             } else {
-                animate(with: heightMin)
+                animate(with: viewModel.heightMin)
             }
         default:
             break
@@ -71,17 +95,3 @@ extension MovieDetailViewController {
     }
 }
 
-// Video function
-
-extension MovieDetailViewController {
-    
-    func video(with url: String) {
-        guard let videoURL = URL(string: url) else { return }
-        let player = AVPlayer(url: videoURL)
-        let playerViewController = AVPlayerViewController()
-        playerViewController.player = player
-        self.present(playerViewController, animated: true) {
-            playerViewController.player!.play()
-        }
-    }
-}

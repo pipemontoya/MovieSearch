@@ -4,6 +4,6 @@ use_frameworks!
 
 target 'MovieSearch' do
 
-pod 'kingfisher'
+    pod 'YoutubePlayer-in-WKWebView'
 
 end
