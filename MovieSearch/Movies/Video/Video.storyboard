@@ -19,11 +19,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hGl-gP-frj" customClass="WKYTPlayerView">
-                                <rect key="frame" x="0.0" y="104" width="414" height="792"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="IxM-9v-2b7" appends="YES" id="wSp-nk-waG"/>
+                                </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dvi-Ka-S8y">
-                                <rect key="frame" x="16" y="60" width="54" height="36"/>
+                                <rect key="frame" x="16" y="92" width="54" height="36"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Close">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -35,11 +39,11 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="dvi-Ka-S8y" firstAttribute="top" secondItem="qBM-xz-3cb" secondAttribute="top" constant="16" id="2Yr-cS-wo1"/>
+                            <constraint firstItem="dvi-Ka-S8y" firstAttribute="top" secondItem="qBM-xz-3cb" secondAttribute="top" constant="48" id="2Yr-cS-wo1"/>
                             <constraint firstItem="dvi-Ka-S8y" firstAttribute="leading" secondItem="qBM-xz-3cb" secondAttribute="leading" constant="16" id="KRp-sb-gI6"/>
                             <constraint firstItem="hGl-gP-frj" firstAttribute="leading" secondItem="qBM-xz-3cb" secondAttribute="leading" id="Q73-rs-fpO"/>
-                            <constraint firstItem="hGl-gP-frj" firstAttribute="top" secondItem="dvi-Ka-S8y" secondAttribute="bottom" constant="8" id="fTX-9n-V0W"/>
                             <constraint firstAttribute="bottom" secondItem="hGl-gP-frj" secondAttribute="bottom" id="kVe-S5-c3c"/>
+                            <constraint firstItem="hGl-gP-frj" firstAttribute="top" secondItem="uZ6-ri-Rdv" secondAttribute="top" id="uy2-cO-PKi"/>
                             <constraint firstItem="hGl-gP-frj" firstAttribute="trailing" secondItem="qBM-xz-3cb" secondAttribute="trailing" id="xNC-ft-XaT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qBM-xz-3cb"/>
@@ -49,6 +53,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ngw-H6-RFi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="IxM-9v-2b7">
+                    <connections>
+                        <action selector="closeGesture:" destination="n4H-Zc-KKE" id="ZyG-gY-dPI"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="109.82142857142857"/>
         </scene>

@@ -18,9 +18,20 @@ class VideoViewController: UIViewController {
         super.viewDidLoad()
         videoView.contentMode = .scaleAspectFit
         videoView.load(withVideoId: key ?? "")
+        videoView.delegate = self
     }
 
     @IBAction func closeButton(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true)
+    }
+    
+    @IBAction func closeGesture(_ sender: Any) {
+        dismiss(animated: true)
+    }
+}
+
+extension VideoViewController: WKYTPlayerViewDelegate {
+    func playerViewDidBecomeReady(_ playerView: WKYTPlayerView) {
+        videoView.playVideo()
     }
 }
