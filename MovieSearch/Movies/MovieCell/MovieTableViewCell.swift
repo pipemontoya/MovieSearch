@@ -10,10 +10,6 @@ import UIKit
 
 class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var posterImageView: UIImageView!
-    @IBOutlet weak var movieDescription: UITextView!
     @IBOutlet weak var rateLabel: UILabel!
     @IBOutlet weak var viewC: UIView!
-    @IBOutlet weak var hasVideoImage: UIImageView!
-    @IBOutlet weak var title: UILabel!
-    
 }

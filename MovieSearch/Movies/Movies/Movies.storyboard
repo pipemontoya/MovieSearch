@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="jWZ-JZ-Mvc">
-                                <rect key="frame" x="0.0" y="149" width="375" height="663"/>
+                                <rect key="frame" x="0.0" y="209" width="375" height="603"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="220" id="kFQ-yl-LMU" customClass="MovieTableViewCell" customModule="MovieSearch" customModuleProvider="target">
@@ -94,25 +94,63 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="NNE-oG-AX4"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFM-96-PGC">
-                                <rect key="frame" x="15.999999999999996" y="76" width="61.666666666666657" height="36"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="nMz-AM-2eX">
-                                <rect key="frame" x="168" y="112" width="39" height="37"/>
-                            </pageControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="POP-XK-OLq">
+                                <rect key="frame" x="0.0" y="44" width="375" height="120"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFM-96-PGC">
+                                        <rect key="frame" x="15.999999999999996" y="42" width="61.666666666666657" height="36"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5A-sE-hfx">
+                                        <rect key="frame" x="326" y="47.666666666666671" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="y5A-sE-hfx" secondAttribute="height" multiplier="1:1" id="Ky1-sC-Fn1"/>
+                                            <constraint firstAttribute="height" constant="25" id="MVa-QS-DsK"/>
+                                        </constraints>
+                                        <state key="normal" image="search">
+                                            <color key="titleColor" red="0.60392156862745094" green="0.60392156862745094" blue="0.60392156862745094" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="nMz-AM-2eX">
+                                        <rect key="frame" x="168" y="83" width="39" height="37"/>
+                                    </pageControl>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="y5A-sE-hfx" firstAttribute="centerY" secondItem="NFM-96-PGC" secondAttribute="centerY" id="4Mt-Zg-AOt"/>
+                                    <constraint firstAttribute="height" constant="120" id="Hmx-2F-PP9"/>
+                                    <constraint firstItem="NFM-96-PGC" firstAttribute="leading" secondItem="POP-XK-OLq" secondAttribute="leading" constant="16" id="MeI-WO-hTC"/>
+                                    <constraint firstItem="nMz-AM-2eX" firstAttribute="centerX" secondItem="POP-XK-OLq" secondAttribute="centerX" id="TMu-so-3qv"/>
+                                    <constraint firstItem="NFM-96-PGC" firstAttribute="centerY" secondItem="POP-XK-OLq" secondAttribute="centerY" id="Wie-wZ-pNY"/>
+                                    <constraint firstAttribute="bottom" secondItem="nMz-AM-2eX" secondAttribute="bottom" id="juP-4y-4pW"/>
+                                    <constraint firstAttribute="trailing" secondItem="y5A-sE-hfx" secondAttribute="trailing" constant="24" id="p4B-1A-XbD"/>
+                                </constraints>
+                            </view>
+                            <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="mMf-ad-Vru">
+                                <rect key="frame" x="0.0" y="164" width="375" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="WPE-Er-yl4"/>
+                                </constraints>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="cb1-um-bx8"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="NFM-96-PGC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="MZx-bo-ZMy"/>
+                            <constraint firstItem="POP-XK-OLq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Gq3-fi-Cmk"/>
+                            <constraint firstItem="jWZ-JZ-Mvc" firstAttribute="top" secondItem="mMf-ad-Vru" secondAttribute="bottom" id="HeG-Pl-e8N"/>
+                            <constraint firstItem="mMf-ad-Vru" firstAttribute="top" secondItem="POP-XK-OLq" secondAttribute="bottom" id="RYA-54-gci"/>
                             <constraint firstItem="jWZ-JZ-Mvc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="U4e-Ma-hjn"/>
                             <constraint firstItem="jWZ-JZ-Mvc" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ZLP-QT-8NS"/>
-                            <constraint firstItem="nMz-AM-2eX" firstAttribute="top" secondItem="NFM-96-PGC" secondAttribute="bottom" id="deg-yi-OB5"/>
-                            <constraint firstItem="nMz-AM-2eX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fD7-gF-3Iz"/>
-                            <constraint firstItem="NFM-96-PGC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="kik-9Z-zTn"/>
-                            <constraint firstItem="jWZ-JZ-Mvc" firstAttribute="top" secondItem="nMz-AM-2eX" secondAttribute="bottom" id="wVt-9E-U61"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="POP-XK-OLq" secondAttribute="trailing" id="aWX-Kb-VNr"/>
+                            <constraint firstItem="POP-XK-OLq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ev3-AH-UZR"/>
+                            <constraint firstItem="mMf-ad-Vru" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fmZ-BN-ZIc"/>
+                            <constraint firstItem="mMf-ad-Vru" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="u23-x0-7eW"/>
                             <constraint firstAttribute="bottom" secondItem="jWZ-JZ-Mvc" secondAttribute="bottom" id="wuF-yR-8ES"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -120,7 +158,11 @@
                     <navigationItem key="navigationItem" id="PPf-mb-jFR"/>
                     <connections>
                         <outlet property="categoryTitle" destination="NFM-96-PGC" id="ij1-4I-X0y"/>
+                        <outlet property="headerConstraint" destination="Hmx-2F-PP9" id="ifd-82-qNv"/>
                         <outlet property="pageControl" destination="nMz-AM-2eX" id="oEO-pd-4nY"/>
+                        <outlet property="searchBar" destination="mMf-ad-Vru" id="ETX-iq-RhM"/>
+                        <outlet property="searchBarHeightConstraint" destination="WPE-Er-yl4" id="6O7-1e-gZe"/>
+                        <outlet property="searchButton" destination="y5A-sE-hfx" id="udY-Wd-2Fj"/>
                         <outlet property="tableView" destination="jWZ-JZ-Mvc" id="epU-Lc-EUR"/>
                         <segue destination="eCa-nx-Rn8" kind="presentation" identifier="detail" modalPresentationStyle="overCurrentContext" id="dmY-Lx-mnv"/>
                     </connections>
@@ -230,6 +272,7 @@
     </scenes>
     <resources>
         <image name="cantPlay" width="511" height="384"/>
+        <image name="search" width="56" height="57"/>
         <image name="star" width="42.666667938232422" height="42.666667938232422"/>
     </resources>
 </document>

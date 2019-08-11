@@ -11,6 +11,7 @@ import Foundation
 class MoviesViewModel {
     private(set) var index: Int
     private(set) var movies = [Movie]()
+    var filteredSearch = [Movie]()
     
     init(index: Int) {
         self.index = index
@@ -33,6 +34,7 @@ class MoviesViewModel {
                 switch result {
                 case .success(let movies):
                     self.movies = movies
+                    self.filteredSearch = movies
                     handler(.success(true))
                 case .failure(let error):
                     handler(.failure(error))
@@ -43,6 +45,7 @@ class MoviesViewModel {
                 switch result {
                 case .success(let movies):
                     self.movies = movies
+                    self.filteredSearch = movies
                     handler(.success(true))
                 case .failure(let error):
                     handler(.failure(error))
@@ -53,6 +56,7 @@ class MoviesViewModel {
                 switch result {
                 case .success(let movies):
                     self.movies = movies
+                    self.filteredSearch = movies
                     handler(.success(true))
                 case .failure(let error):
                     handler(.failure(error))

@@ -15,11 +15,19 @@ class MoviesViewController: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var categoryTitle: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var searchBarHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var headerConstraint: NSLayoutConstraint!
+    
+    
     var viewModel: MoviesViewModel?
     let transition = Animator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBarHeightConstraint.constant = 0
+        searchButton.addTarget(self, action: #selector(opensearchBar), for: .touchUpInside)
         pageControl.currentPage = viewModel?.index ?? 0
         categoryTitle.text = viewModel?.getTitle()
         navigationController?.navigationBar.isHidden = true
@@ -41,46 +49,59 @@ class MoviesViewController: UIViewController {
             detailViewController.transitioningDelegate = self
         }
     }
+    @objc private func opensearchBar() {
+        let heightValue = searchBarHeightConstraint.constant
+        UIView.animate(withDuration: 0.5) {
+            if heightValue == 45 {
+                self.pageControl.isHidden = false
+                self.searchBarHeightConstraint.constant = 0
+                self.headerConstraint.constant = 120
+                self.searchBar.resignFirstResponder()
+            } else {
+                self.searchBar.becomeFirstResponder()
+                self.pageControl.isHidden = true
+                self.headerConstraint.constant = 40
+                self.searchBarHeightConstraint.constant = 45
+            }
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    
     
 }
 
-//MARK - DataSource
+//MARK - tableViewDataSource
 
 extension MoviesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.movies.count ?? 0
+        return viewModel?.filteredSearch.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as? MovieTableViewCell else {
             return UITableViewCell()
         }
-        let movie = viewModel?.movies[indexPath.row]
+        let movie = viewModel?.filteredSearch[indexPath.row]
         let url = URL(string: (movie?.imageUrl ?? ""))
-        cell.posterImageView.kf.setImage(with: url)
-        cell.viewC.shadow(color: .white)
-        cell.rateLabel.text = "\(movie?.voteAverage ?? 0.0)"
+        UIView.transition(with: cell, duration: 0.5, options: .transitionCrossDissolve, animations: {
+            cell.posterImageView.kf.setImage(with: url)
+            cell.viewC.shadow(color: .white)
+            cell.rateLabel.text = "\(movie?.voteAverage ?? 0.0)"
+        })
         return cell
     }
 }
 
-//MARK - Delegate
+//MARK - tableView Delegate
 
 extension MoviesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 390.0
     }
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let rotation = CATransform3DTranslate(CATransform3DIdentity, -200, 10, 0)
-        cell.layer.transform = rotation
-        cell.alpha = 0.3
-        UIView.animate(withDuration: 0.5) {
-            cell.layer.transform = CATransform3DIdentity
-            cell.alpha = 1
-        }
-    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "detail", sender: viewModel?.movies[indexPath.row])
+        performSegue(withIdentifier: "detail", sender: viewModel?.filteredSearch[indexPath.row])
     }
 }
 
@@ -114,11 +135,35 @@ extension MoviesViewController: UIViewControllerTransitioningDelegate {
         )
         
         transition.presenting = true
-        //selectedCell.shadowView.isHidden = true
         return transition
     }
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.presenting = false
         return transition
     }
+}
+
+extension MoviesViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+
+        if searchText.isEmpty {
+            viewModel?.filteredSearch = self.viewModel?.movies ?? [Movie]()
+            tableView.reloadData()
+            return
+        }
+        viewModel?.filteredSearch = (viewModel?.movies.filter({ (movie) -> Bool in
+            if let searchText = searchBar.text?.lowercased() {
+                return movie.title.lowercased().contains(searchText)
+            } else {
+                return false
+            }
+        })) ?? [Movie]()
+        tableView.reloadData()
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        tableView.reloadData()
+        self.searchBar.resignFirstResponder()
+    }
+
 }
