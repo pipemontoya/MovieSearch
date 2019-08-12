@@ -219,11 +219,11 @@
                                         <rect key="frame" x="0.0" y="36" width="375" height="264"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="title" rowHeight="500" id="kn4-uY-jLN" customClass="MoviewDetailTableViewCell" customModule="MovieSearch" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="375" height="500"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="title" rowHeight="200" id="kn4-uY-jLN" customClass="MoviewDetailTableViewCell" customModule="MovieSearch" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kn4-uY-jLN" id="Sbe-10-S51">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Movie" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPY-g2-NPl">
@@ -268,6 +268,40 @@
                                                     <outlet property="releaseDateMoview" destination="9Fm-Nv-p0j" id="QVK-DP-ZfC"/>
                                                     <outlet property="synopsisLabel" destination="K9R-HI-mUT" id="jIU-BB-eyr"/>
                                                     <outlet property="titleMovie" destination="GPY-g2-NPl" id="w25-ao-2dj"/>
+                                                </connections>
+                                            </tableViewCell>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="more" rowHeight="80" id="ugh-GJ-yKu" customClass="MoreTableViewCell" customModule="MovieSearch" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="228" width="375" height="80"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ugh-GJ-yKu" id="63N-co-vFC">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63n-DA-OJZ">
+                                                            <rect key="frame" x="16" y="17.666666666666671" width="343" height="45"/>
+                                                            <color key="backgroundColor" red="0.92156862750000001" green="0.34509803919999998" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="45" id="ErT-yg-HY9"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                                            <state key="normal" title="Search Other Movies">
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </state>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <real key="value" value="22.5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="63n-DA-OJZ" secondAttribute="trailing" constant="16" id="15U-Cd-Ykw"/>
+                                                        <constraint firstItem="63n-DA-OJZ" firstAttribute="centerY" secondItem="63N-co-vFC" secondAttribute="centerY" id="4le-FO-y9H"/>
+                                                        <constraint firstItem="63n-DA-OJZ" firstAttribute="leading" secondItem="63N-co-vFC" secondAttribute="leading" constant="16" id="g6Q-Pi-hwR"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="moreButton" destination="63n-DA-OJZ" id="heR-Uy-hMm"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
