@@ -67,8 +67,7 @@
 
 ## Description
 
-
-
+Below is the layers that are in the application, there is no persistence layer within the app because I did not find it necessary to have a small application that works with cache (inside the network layer).
 
 
 ### Services 
@@ -121,7 +120,7 @@
 2. Movies.storyboard
 3. Video.storyboard
 
-####Sub-Views
+#### Sub-Views
 
 **Responsability**: Show data of the objects brought from ViewModels.
 
