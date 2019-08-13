@@ -29,6 +29,7 @@
 		698D88241FF3573200C8FC9E /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 698D881F1FF3572600C8FC9E /* SwiftyJSON.framework */; };
 		698D88251FF3573200C8FC9E /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 698D881F1FF3572600C8FC9E /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		698D88291FF3597900C8FC9E /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698D88281FF3597900C8FC9E /* ApiService.swift */; };
+		69A651EF23024C1900BA9E96 /* PagerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A651EE23024C1900BA9E96 /* PagerViewModel.swift */; };
 		69CFC57A23011866001C4FF5 /* MoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CFC57923011866001C4FF5 /* MoreTableViewCell.swift */; };
 		69CFC57D23011DA3001C4FF5 /* OnlineSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69CFC57C23011DA3001C4FF5 /* OnlineSearch.storyboard */; };
 		69CFC57F23012058001C4FF5 /* OnlineSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CFC57E23012058001C4FF5 /* OnlineSearchViewController.swift */; };
@@ -80,6 +81,7 @@
 		698D881E1FF3572600C8FC9E /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		698D881F1FF3572600C8FC9E /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		698D88281FF3597900C8FC9E /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		69A651EE23024C1900BA9E96 /* PagerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerViewModel.swift; sourceTree = "<group>"; };
 		69CFC57923011866001C4FF5 /* MoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableViewCell.swift; sourceTree = "<group>"; };
 		69CFC57C23011DA3001C4FF5 /* OnlineSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnlineSearch.storyboard; sourceTree = "<group>"; };
 		69CFC57E23012058001C4FF5 /* OnlineSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineSearchViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			children = (
 				693A66451FF47AB80047B4B5 /* Main.storyboard */,
 				6903D4301FFD2CF80087AE60 /* PagerViewController.swift */,
+				69A651EE23024C1900BA9E96 /* PagerViewModel.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6930BCD522F162420026DA9A /* UIView.swift in Sources */,
+				69A651EF23024C1900BA9E96 /* PagerViewModel.swift in Sources */,
 				69CFC57A23011866001C4FF5 /* MoreTableViewCell.swift in Sources */,
 				69EB664322FBFD3D0004C5D2 /* Video.swift in Sources */,
 				692FEB2422F2BED0005C9D5A /* Animator.swift in Sources */,

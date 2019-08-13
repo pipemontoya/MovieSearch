@@ -14,23 +14,18 @@ class pagerViewController: TwitterPagerTabStripViewController {
     weak var popular: MoviesViewController?
     weak var topRated: MoviesViewController?
     weak var upcoming: MoviesViewController?
-    
+    var viewModel = PagerViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        let popularS = UIStoryboard(name: "Movies", bundle: nil).instantiateInitialViewController()
-        let topRatedS = UIStoryboard(name: "Movies", bundle: nil).instantiateInitialViewController()
-        let upcomingS = UIStoryboard(name: "Movies", bundle: nil).instantiateInitialViewController()
-        popular = popularS as? MoviesViewController
-        popular?.viewModel = MoviesViewModel(index: 0)
-        topRated = topRatedS as? MoviesViewController
-        topRated?.viewModel = MoviesViewModel(index: 1)
-        upcoming = upcomingS as? MoviesViewController
-        upcoming?.viewModel = MoviesViewModel(index: 2)
-        return [popular ?? UIViewController(), topRated ?? UIViewController(), upcoming ?? UIViewController()]
+        let viewControllers = viewModel.subscribeVC(views: [.Movies, .Movies, .Movies])
+        for (index, viewController) in viewControllers.enumerated() {
+            viewController.viewModel = MoviesViewModel(index: index)
+        }
+        return viewControllers
     }
     
 }
